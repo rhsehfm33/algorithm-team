@@ -13,7 +13,7 @@ class Main {
         String str = Reader.next();
         double f = Reader.nextDouble();
 
-        Printer.print(N + " " + str);
+        System.out.println(N + " " + str);
     }
 
     public static void main (String[] args) throws IOException {
