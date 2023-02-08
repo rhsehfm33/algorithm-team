@@ -1,15 +1,15 @@
 package com.company.MS.p9093;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.PrintWriter;
-import java.util.StringTokenizer;
+import java.io.*;
+import java.util.*;
 
 class Main {
     public static void solve(int testcase) throws IOException {
-        StringBuilder str = new StringBuilder(Reader.nextLine());
-        Printer.print(str.reverse());
+        String words = Reader.nextLine();
+        for (String word : words.split(" ")) {
+            Printer.print(new StringBuilder(word).reverse() + " ");
+        }
+        Printer.println();
     }
 
     public static void solve() throws IOException {
@@ -66,8 +66,16 @@ class Main {
     static class Printer {
         public static PrintWriter out = new PrintWriter(System.out);
 
-        public static void print(Object object) {
+        public static void println() {
+            out.println();
+        }
+
+        public static void println(Object object) {
             out.println(object);
+        }
+
+        public static void print(Object object) {
+            out.print(object);
         }
 
         public static void close() throws IOException {
