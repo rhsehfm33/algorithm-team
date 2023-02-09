@@ -13,11 +13,12 @@ class Main {
         String str = Reader.next();
         double f = Reader.nextDouble();
 
-        System.out.println(N + " " + str + " " + f);
+        Printer.print(N + " " + str + " " + f);
     }
 
     public static void main (String[] args) throws IOException {
         solve();
+        Printer.close();
     }
 
 
@@ -62,8 +63,16 @@ class Main {
     static class Printer {
         public static PrintWriter out = new PrintWriter(System.out);
 
-        public static void print(Object object) {
+        public static void println() {
+            out.println();
+        }
+
+        public static void println(Object object) {
             out.println(object);
+        }
+
+        public static void print(Object object) {
+            out.print(object);
         }
 
         public static void close() throws IOException {
