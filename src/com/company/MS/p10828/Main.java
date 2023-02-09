@@ -3,17 +3,68 @@ package com.company.MS.p10828;
 import java.util.*;
 import java.io.*;
 
-class Main {
-    public static void solve(int testcase) throws IOException {
+class MyStack {
+    int[] storage;
+    int cap;
+    int count;
 
+    public MyStack() {
+        this.cap = 10004;
+        this.count = 0;
+        this.storage = new int[cap];
     }
 
-    public static void solve() throws IOException {
-        int N = Reader.nextInt();
-        String str = Reader.next();
-        double f = Reader.nextDouble();
+    void push(int num) {
+        storage[count++] = num;
+    }
 
-        Printer.print(N + " " + str + " " + f);
+    int pop() {
+        if (isEmpty() == 1) {
+            return -1;
+        }
+        else {
+            return storage[--count];
+        }
+    }
+
+    int size() {
+        return count;
+    }
+
+    int isEmpty() {
+        return count == 0 ? 1 : 0;
+    }
+
+    int top() {
+        if (isEmpty() == 1) {
+            return -1;
+        }
+        else {
+            return storage[count - 1];
+        }
+    }
+}
+
+class Main {
+    public static void solve() throws IOException {
+        MyStack myStack = new MyStack();
+
+        int N = Reader.nextInt();
+        while (N-- > 0) {
+            String operation = Reader.next();
+            switch (operation) {
+                case "push":
+                    myStack.push(Reader.nextInt()); break;
+                case "pop":
+                    Printer.println(myStack.pop()); break;
+                case "size":
+                    Printer.println(myStack.size()); break;
+                case "empty":
+                    Printer.println(myStack.isEmpty()); break;
+                case "top":
+                    Printer.println(myStack.top()); break;
+            }
+        }
     }
 
     public static void main (String[] args) throws IOException {
