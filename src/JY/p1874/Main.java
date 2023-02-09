@@ -1,4 +1,4 @@
-package p1874;
+package JY.p1874;
 
 import java.util.*;
 import java.io.*;
