@@ -9,9 +9,33 @@ class Main {
     }
 
     public static void solve() throws IOException {
+        ArrayList<String> answer = new ArrayList<String>();
+        int T = Reader.nextInt();
+        int[] stack = new int[T];
+        int start = 0;
+        int index = 0;
+        for (int i=0; i<T; i++){
+            int input = Reader.nextInt();   // 4
 
-        int T = Reader.nextInt(); // testcase
+            if (input > start){
+                for (int j=start+1; j<=input; j++){
+                    stack[index] = j;
+                    answer.add("+");
+                    index++;
+                }
+                start = input;
+            } else if (stack[index-1] != input) {
+                Printer.println("NO");
+                return;
+            }
 
+            index--;
+            answer.add("-");
+
+        }
+        for (int i =0; i<answer.size(); i++){
+            Printer.println(answer.get(i));
+        }
 
     }
 
