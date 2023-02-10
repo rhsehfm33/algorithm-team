@@ -1,22 +1,21 @@
 package com.company.JK.p10828;
 
 import java.io.BufferedReader;
+import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
 
 public class Main {
     public static void main(String[] args) throws IOException {
-//        Scanner rd = new Scanner(new File("src/com/company/JK/p10828/text.txt"));
-        BufferedReader rd = new BufferedReader(new InputStreamReader(System.in));
-//        int n = rd.nextInt();
+//        BufferedReader rd = new BufferedReader(new InputStreamReader(System.in));
+        BufferedReader rd = new BufferedReader(new FileReader("src/com/company/JK/p10828/text.txt"));
         int n = Integer.parseInt(rd.readLine());
 
         MyStack mt = new MyStack(n);
-//        rd.nextLine();
 
         for (int i = 0; i <n; i++) {
-            String[] str = rd.readLine().split(" "); // Scanner : nextLine(), Buffered : readLine()
+            String[] str = rd.readLine().split(" ");
             if(str[0].equals("push")){
                 mt.push(Integer.parseInt(str[1]));
             } else if (str[0].equals("pop")) {
