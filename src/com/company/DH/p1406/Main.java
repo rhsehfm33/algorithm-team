@@ -45,14 +45,14 @@ class Main {
 
             }
         }
-        while (!stack2.isEmpty()){
-            stack.add(stack2.pop());
+        while (!stack.isEmpty()){
+            stack2.add(stack.pop());
         }
 
-        while (!stack.isEmpty()){
-            str.append(stack.pop());
+        while (!stack2.isEmpty()){
+            str.append(stack2.pop());
         }
-        Printer.print(str.reverse());
+        Printer.print(str);
     }
 
     public static void main(String[] args) throws IOException {
