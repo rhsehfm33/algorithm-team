@@ -1,4 +1,4 @@
-package p1874;
+package JY.p10828;
 
 import java.util.*;
 import java.io.*;
@@ -9,9 +9,53 @@ class Main {
     }
 
     public static void solve() throws IOException {
-
+        ArrayList<String> stack = new ArrayList<String>();
         int T = Reader.nextInt(); // testcase
+        for (int i=0 ; i<T; i++){
 
+            String input = Reader.nextLine();
+            String[] arr = input.split(" ");
+            //Printer.println(Arrays.toString(arr));
+
+
+
+            switch (arr[0]){
+                case "push" :
+                    stack.add(arr[1]);
+                    break;
+                case "pop" :
+                    if (stack.size() == 0){
+                        Printer.println(-1);
+                    }
+                    else {
+                        Printer.println(stack.get(stack.size()-1));
+                        stack.remove(stack.size()-1);
+                    }
+                    break;
+                case "top" :
+                    if (stack.size() == 0){
+                        Printer.println(-1);
+                    }
+                    else {
+                        Printer.println(stack.get(stack.size()-1));
+                    }
+                    break;
+                case "size" :
+                    Printer.println(stack.size());
+                    break;
+                case "empty":
+                    if (stack.size() == 0) {
+                        Printer.println(1);
+                    }
+                    else {
+                        Printer.println(0);
+                    }
+                    break;
+
+
+            }
+
+        }
 
     }
 

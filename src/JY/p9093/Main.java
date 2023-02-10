@@ -1,4 +1,4 @@
-package p9012;
+package JY.p9093;
 
 import java.util.*;
 import java.io.*;
@@ -15,27 +15,26 @@ class Main {
 //
 //        Printer.print(N + " " + str + " " + f);
 
-        int T = Reader.nextInt(); // testcase 6
-        while (T > 0){
-            String str = Reader.nextLine(); // (())(()
-            String[] arr = str.split(""); // [ ( ( ) ) ( ( ) ]
+        int T = Reader.nextInt(); // testcase
+
+        //String str = Reader.next();
+        //String[] strarr = str.split(" ");
+        //Printer.println(strarr[1]);
+        while (T>0){
+            String input = Reader.nextLine(); //input sentence
+            String[] str = input.split(" ");
+            //Printer.print(Arrays.toString(str));
             String answer = "";
-            int num = 0;
-            for (int i =0; i< arr.length; i++){
-                if (arr[i].equals("(")){
-                    num++;
+            for (int i=0; i< str.length; i++){
+                String reverse = "";
+                for (int j=str[i].length()-1; j>=0; j--){
+                    reverse += str[i].charAt(j);
                 }
-                else {
-                    num--;
-                    if (num<0) { answer = "NO"; break; }
-                }
+                answer += reverse+" ";
             }
-            answer = (num == 0) ? "YES" : "NO";
             Printer.println(answer);
-            T--;
+            T -= 1;
         }
-
-
     }
 
     public static void main (String[] args) throws IOException {
