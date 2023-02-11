@@ -4,14 +4,27 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
+import java.util.Stack;
 import java.util.StringTokenizer;
 
 class Main {
     public static void solve(int testcase) throws IOException {
-        String words = Reader.nextLine();
-        String reverseWord = "";
-        for (String str : words.split(" ")) {
-            reverseWord += new StringBuilder(str).reverse() + " ";
+        //마지막을 구분해주기 위해 받아온 값에 공백을 더함
+        String words = Reader.nextLine() + " ";
+        Stack<Character> stack = new Stack<>();
+        StringBuilder reverseWord = new StringBuilder();
+
+        for (int i = 0; i < words.length(); i++) {
+            //입력값을 하나씩 불러와서 공백이 아니면 스택에 푸시 해주고 아니면 StringBuilder에 붙임
+            //스택은 LIFO 후입 선출이기 때문에 pop을 하게되면 나중에 들어온걸 먼저 꺼내주기 때문에 글자가 반대로 된다.
+            if (!(words.charAt(i) == ' ')) {
+                stack.push(words.charAt(i));
+            } else {
+                while (!stack.isEmpty()) {
+                    reverseWord.append(stack.pop());
+                }
+                reverseWord.append(" ");
+            }
         }
         Printer.print(reverseWord);
     }
@@ -20,18 +33,13 @@ class Main {
 
     }
 
-    public static void main (String[] args) throws IOException {
+    public static void main(String[] args) throws IOException {
         int T = Reader.nextInt();
         for (int testcase = 1; testcase <= T; ++testcase) {
             solve(testcase);
         }
         Printer.close();
     }
-
-
-
-
-
 
 
     static class Reader {

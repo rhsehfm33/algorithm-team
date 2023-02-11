@@ -20,11 +20,15 @@ class Main {
         Stack<String> stack = new Stack<>();
         Stack<String> stack2 = new Stack<>();
 
+
+        //스트링을 입력값으로 가져와서 하나씩 자르고 stack에 더합니다.
         for (String str2: inputStr.split("")) {
             stack.add(str2);
         }
 
+        //명령횟수만큼 반복합니다.
         for (int i = 0; i < inputNum; i++) {
+            //명령 P때문에 스플릿을 써서 잘라서 배열에 넣어줍니다.
             String[] operation = Reader.nextLine().split(" ");
             try {
                 switch (operation[0]) {
