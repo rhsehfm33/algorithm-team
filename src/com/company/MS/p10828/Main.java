@@ -3,21 +3,23 @@ package com.company.MS.p10828;
 import java.util.*;
 import java.io.*;
 
+// 구현한 스택
 class MyStack {
-    int[] storage;
-    int cap;
-    int count;
+    int[] storage; // stack의 원소들을 저장하는 곳
+    int count; // 현재 stack 원소들의 개수
 
-    public MyStack() {
-        this.cap = 10004;
+    // len만큼 storage의 공간을 할당해놓음
+    public MyStack(int len) {
+        this.storage = new int[len];
         this.count = 0;
-        this.storage = new int[cap];
     }
 
+    // stack에 작은 index부터 원소들을 저장함
     void push(int num) {
         storage[count++] = num;
     }
 
+    // 비어있지 않으면, stack의 큰 index부터 원소들을 반환하고 제거함
     int pop() {
         if (isEmpty() == 1) {
             return -1;
@@ -27,14 +29,18 @@ class MyStack {
         }
     }
 
+    // 현재 stack에 저장되어 있는 원소의 개수를 반환
     int size() {
         return count;
     }
 
+    // 현재 스택이 비어있으면 1 아니면 0을 반환
     int isEmpty() {
         return count == 0 ? 1 : 0;
     }
 
+    // 현재 스택이 꽉 차 있지 안하면, 가장 마지막에 삽입된 원소를 반환
+    // 꽉 차 있다면, -1을 반환
     int top() {
         if (isEmpty() == 1) {
             return -1;
@@ -47,9 +53,9 @@ class MyStack {
 
 class Main {
     public static void solve() throws IOException {
-        MyStack myStack = new MyStack();
-
         int N = Reader.nextInt();
+
+        MyStack myStack = new MyStack(N);
         while (N-- > 0) {
             String operation = Reader.next();
             switch (operation) {
