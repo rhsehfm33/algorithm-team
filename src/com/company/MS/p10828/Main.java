@@ -23,8 +23,7 @@ class MyStack {
     int pop() {
         if (isEmpty() == 1) {
             return -1;
-        }
-        else {
+        } else {
             return storage[--count];
         }
     }
@@ -44,8 +43,7 @@ class MyStack {
     int top() {
         if (isEmpty() == 1) {
             return -1;
-        }
-        else {
+        } else {
             return storage[count - 1];
         }
     }
@@ -60,28 +58,28 @@ class Main {
             String operation = Reader.next();
             switch (operation) {
                 case "push":
-                    myStack.push(Reader.nextInt()); break;
+                    myStack.push(Reader.nextInt());
+                    break;
                 case "pop":
-                    Printer.println(myStack.pop()); break;
+                    Printer.println(myStack.pop());
+                    break;
                 case "size":
-                    Printer.println(myStack.size()); break;
+                    Printer.println(myStack.size());
+                    break;
                 case "empty":
-                    Printer.println(myStack.isEmpty()); break;
+                    Printer.println(myStack.isEmpty());
+                    break;
                 case "top":
-                    Printer.println(myStack.top()); break;
+                    Printer.println(myStack.top());
+                    break;
             }
         }
     }
 
-    public static void main (String[] args) throws IOException {
+    public static void main(String[] args) throws IOException {
         solve();
         Printer.close();
     }
-
-
-
-
-
 
 
     static class Reader {

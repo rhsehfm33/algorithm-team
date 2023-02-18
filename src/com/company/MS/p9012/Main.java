@@ -14,8 +14,7 @@ class Main {
         for (int i = 0; i < str.length(); ++i) {
             if (str.charAt(i) == '(') {
                 ++open;
-            }
-            else {
+            } else {
                 --open;
             }
 
@@ -27,13 +26,12 @@ class Main {
 
         if (open == 0) {
             Printer.println("YES");
-        }
-        else {
+        } else {
             Printer.println("NO");
         }
     }
 
-    public static void main (String[] args) throws IOException {
+    public static void main(String[] args) throws IOException {
         int T = Reader.nextInt();
         for (int testcase = 1; testcase <= T; ++testcase) {
             solve(testcase);

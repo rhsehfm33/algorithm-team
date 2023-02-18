@@ -26,7 +26,7 @@ class Main {
         Printer.print(sb);
     }
 
-    public static void main (String[] args) throws IOException {
+    public static void main(String[] args) throws IOException {
         solve();
         Printer.close();
     }

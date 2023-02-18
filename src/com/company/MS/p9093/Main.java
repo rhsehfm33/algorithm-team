@@ -16,18 +16,13 @@ class Main {
 
     }
 
-    public static void main (String[] args) throws IOException {
+    public static void main(String[] args) throws IOException {
         int T = Reader.nextInt();
         for (int testcase = 1; testcase <= T; ++testcase) {
             solve(testcase);
         }
         Printer.close();
     }
-
-
-
-
-
 
 
     static class Reader {
